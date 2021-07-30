@@ -11,9 +11,13 @@ class CartItem extends React.Component {
             img: ''
         }
         // this.increaseQuantity = this.increaseQuantity.bind(this);
+        this.testing();
     }
 
     increaseQuantity = () => {
+        // const {qty} = this.state;
+        //const {price} =this.state;
+        // if(qty===1){return{price: 999};}
         // this.state.qty++;
         console.log('this', this.state);
 
@@ -25,19 +29,45 @@ class CartItem extends React.Component {
         //setState form 2 - if previous state required
         this.setState((prevState) => {
             return {
-                qty: prevState.qty + 1
+                qty: prevState.qty + 1,
+                price: prevState.price + 999
             }
         });
     }
 
     decreaseQuantity = () => {
-        const {qty} = this.state;
-        if(qty===0){return;}
+        const { qty } = this.state;
+        // const {price} =this.state;
+        if (qty === 0) { return; }
         console.log('this', this);
         this.setState((prevState) => {
             return {
-                 qty: prevState.qty - 1   
+                qty: prevState.qty - 1,
+                price: prevState.price - 999
             }
+        });
+    }
+
+    clearCart = () => {
+        this.setState((prevState) => {
+            return {
+                qty: 0,
+                price: 0
+            }
+        });
+    }
+
+    testing() {
+        const promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('done');
+            }, 5000);
+        })
+
+        promise.then(() => {
+            this.setState({ qty: this.state.qty + 1 });
+
+            console.log('state', this.state);
         });
     }
 
@@ -70,6 +100,7 @@ class CartItem extends React.Component {
                             alt="delete"
                             className="action-icons"
                             src="https://image.flaticon.com/icons/png/512/992/992701.png"
+                            onClick={this.clearCart}
                         />
                     </div>
                 </div>
