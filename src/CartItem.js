@@ -11,8 +11,22 @@ class CartItem extends React.Component {
             img: ''
         }
         // this.increaseQuantity = this.increaseQuantity.bind(this);
-        this.testing();
+        // this.testing();
     }
+    
+    // testing() {
+    //     const promise = new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             resolve('done');
+    //         }, 5000);
+    //     })
+
+    //     promise.then(() => {
+    //         this.setState({ qty: this.state.qty + 1 });
+
+    //         console.log('state', this.state);
+    //     });
+    // }
 
     increaseQuantity = () => {
         // const {qty} = this.state;
@@ -57,19 +71,6 @@ class CartItem extends React.Component {
         });
     }
 
-    testing() {
-        const promise = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve('done');
-            }, 5000);
-        })
-
-        promise.then(() => {
-            this.setState({ qty: this.state.qty + 1 });
-
-            console.log('state', this.state);
-        });
-    }
 
     render() {
         const { price, title, qty } = this.state;
