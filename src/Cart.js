@@ -76,14 +76,12 @@ class Cart extends React.Component {
         })
     }
 
-    handleClearCart= (product) => {
-        console.log('Clear Cart',product);
+    handleDeleteItem= (id) => {
+        // console.log('Delete Item',products);
         const {products} = this.state;
-        const index =products.indexOf(product);
-        products[index].price= products[index].initPrice;
-        products[index].qty =1;
+        const items = products.filter((item)=>item.id!==id);
         this.setState({
-            products: products
+            products: items
         })
     }
 
@@ -98,7 +96,7 @@ class Cart extends React.Component {
                             key={product.id} 
                             onIncreaseQuantity={this.handleIncreaseQuantity}
                             onDecreaseQuantity={this.handleDecreaseQuantity}
-                            onClearCart={this.handleClearCart}
+                            onDeleteItem={this.handleDeleteItem}
                         />
                     )
                 })}
