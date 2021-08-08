@@ -6,7 +6,7 @@ class Navbar extends React.Component {
             <div>
                 <div>
                     <img src="https://image.flaticon.com/icons/png/512/1170/1170678.png" alt="cart-icon"/>
-                    <span>3</span>
+                    <span>Navbar</span>
                 </div>
             </div>
         );
